@@ -1,4 +1,4 @@
-# KBSMC colon tma cancer grading
+# KBSMC colon tma cancer grading dataset
 Description of the KBSMC_colon_tma_cancer_grading dataset
 
 Google drive [[link]](https://drive.google.com/drive/folders/1RarodOuIVdyy2loJNBWI3qIE0zePulug?usp=sharing)
