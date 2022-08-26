@@ -1,10 +1,10 @@
-# KBSMC colon tma cancer grading dataset
+# KBSMC colon tma cancer grading
 Description of the KBSMC_colon_tma_cancer_grading dataset
 
 Google drive [[link]](https://drive.google.com/drive/folders/1RarodOuIVdyy2loJNBWI3qIE0zePulug?usp=sharing)
 
 The tissue image and annotation are provided by Kangbuk Samsung Hospital, Seoul, South Korea. \
-The annotation has been delineated by two pathologist: Kim, Kyungeun and Song, Boram.
+The annotation has been delineated by two pathologist: Kim, Kyungeun and Song, Boram.\
 The patch images are generated at 40x of size 1024x1024 pixels.
 
 # Dataset structure
