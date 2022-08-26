@@ -5,7 +5,7 @@ Google drive [[link]](https://drive.google.com/drive/folders/1RarodOuIVdyy2loJNB
 
 The tissue image and annotation are provided by Kangbuk Samsung Hospital, Seoul, South Korea. \
 The annotation has been delineated by two pathologist: Kim, Kyungeun and Song, Boram.
-
+The patch images are generated at 40x of size 1024x1024 pixels
 # Dataset structure
 
 ├── KBSMC_colon_tma_cancer_grading_1024 \
