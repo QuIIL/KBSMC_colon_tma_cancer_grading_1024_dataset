@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/KBSMC_colon_cancer_grading_dataset.iml" filepath="$PROJECT_DIR$/.idea/KBSMC_colon_cancer_grading_dataset.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../KBSMC_colon_cancer_grading_dataset/.idea/KBSMC_colon_cancer_grading_dataset.iml" filepath="$PROJECT_DIR$/../KBSMC_colon_cancer_grading_dataset/.idea/KBSMC_colon_cancer_grading_dataset.iml" />
     </modules>
   </component>
 </project>
