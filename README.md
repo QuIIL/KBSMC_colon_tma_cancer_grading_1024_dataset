@@ -34,7 +34,7 @@ For more detail, please refer to the paper above.
 
 
 
-# Training + validation + testing I  structure
+## Training + validation + testing I  structure
 
 ├── KBSMC_colon_tma_cancer_grading_512 \
 │ ├── tma01 \
