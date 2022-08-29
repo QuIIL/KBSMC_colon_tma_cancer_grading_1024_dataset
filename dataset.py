@@ -7,6 +7,7 @@ import torch.utils.data as data
 from torchvision import transforms
 from PIL import Image
 
+
 ####
 
 
@@ -28,6 +29,7 @@ def print_data_count(label_list):
 class DatasetSerial(data.Dataset):
     """get image by index
     """
+
     def __init__(self, pair_list, img_transform=None, target_transform=None, two_crop=False):
         self.pair_list = pair_list
 
@@ -54,29 +56,9 @@ class DatasetSerial(data.Dataset):
         return img, target
 
 
-class DatasetSerialWSI(data.Dataset):
-    def __init__(self, path_list):
-        self.path_list = path_list
 
-    def __getitem__(self, idx):
-        input_img = cv2.imread(self.path_list[idx])
-        input_img = cv2.cvtColor(input_img, cv2.COLOR_BGR2RGB)
-        input_img = np.array(input_img).copy()
-        transform = transforms.Compose([
-            transforms.ToTensor(),
-            transforms.Normalize(mean=[0., 0., 0.],
-                                 std=[1., 1., 1.])
-        ])
-        input_img = np.array(transform(input_img)).transpose(1, 2, 0)
-        location = self.path_list[idx].split('/')[-1].split('.')[0].split('_')
-        return input_img, location
-
-    def __len__(self):
-        return len(self.path_list)
-
-
-
-def prepare_colon_tma_data(data_root_dir='/media/trinh/Data0/data0/patches_data/KBSMC/Colon/colon_tma/COLON_PATCHES_1024/KBSMC_colon_tma_cancer_grading_1024'):
+def prepare_colon_tma_data(
+        data_root_dir='/media/trinh/Data0/data0/patches_data/KBSMC/Colon/colon_tma/COLON_PATCHES_1024/KBSMC_colon_tma_cancer_grading_512'):
     def load_data_info(pathname):
         file_list = glob.glob(pathname)
         label_list = [int(file_path.split('_')[-1].split('.')[0]) for file_path in file_list]
@@ -108,8 +90,11 @@ def prepare_colon_tma_data(data_root_dir='/media/trinh/Data0/data0/patches_data/
     return train_set, valid_set, test_set
 
 
+def prepare_colon_wsi_data(data_root_dir='./KBSMC_colon_45wsis_cancer_grading_512 (Test 2)'):
+    """ List all the images and their labels
+        return train_set, valid_set, test_set 2
+    """
 
-def prepare_colon_wsi_patch(data_visual=False):
     def load_data_info_from_list(data_dir, path_list):
         file_list = []
         for WSI_name in path_list:
@@ -120,17 +105,14 @@ def prepare_colon_wsi_patch(data_visual=False):
         list_out = list(zip(file_list, label_list))
         return list_out
 
-    data_root_dir = '/media/data1/trinh/data/workspace_data/colon_wsi/patches_colon_edit_MD/colon_45WSIs_1144_08_step05_05'
-    data_visual = '/media/data1/trinh/data/workspace_data/colon_wsi/patches_colon_edit_MD/colon_45WSIs_1144_01_step05_visualize/patch_512/'
+    wsi_list = ['wsi_001', 'wsi_002', 'wsi_003', 'wsi_004', 'wsi_005', 'wsi_006', 'wsi_007', 'wsi_008', 'wsi_009',
+                'wsi_010', 'wsi_011', 'wsi_012', 'wsi_013', 'wsi_014', 'wsi_015', 'wsi_016', 'wsi_017', 'wsi_018',
+                'wsi_019', 'wsi_020', 'wsi_021', 'wsi_022', 'wsi_023', 'wsi_024', 'wsi_025', 'wsi_026', 'wsi_027',
+                'wsi_028', 'wsi_029', 'wsi_030', 'wsi_031', 'wsi_032', 'wsi_033', 'wsi_034', 'wsi_035', 'wsi_090',
+                'wsi_092', 'wsi_093', 'wsi_094', 'wsi_095', 'wsi_096', 'wsi_097', 'wsi_098', 'wsi_099', 'wsi_100']
 
-    df_test = [] #Note: Will be update later
-
-    if data_visual:
-        test_set = load_data_info_from_list(data_visual, df_test)
-    else:
-        test_set = load_data_info_from_list(data_root_dir, df_test)
+    test_set = load_data_info_from_list(data_root_dir, wsi_list)
     return test_set
-
 
 
 def visualize(ds, batch_size, nr_steps=100):
@@ -159,5 +141,3 @@ def visualize(ds, batch_size, nr_steps=100):
 
 
 
-
-1
